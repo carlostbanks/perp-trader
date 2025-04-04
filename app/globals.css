@@ -1,26 +1,41 @@
-@import "tailwindcss";
+/* app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 18, 18, 18;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  font-family: var(--font-inter);
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-black py-3 px-6 rounded-md font-medium hover:opacity-90 transition-opacity;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white py-3 px-6 rounded-md font-medium hover:bg-opacity-80 transition-opacity border border-muted;
+  }
+  
+  .input-field {
+    @apply bg-secondary border border-muted rounded-md px-4 py-3 text-white w-full focus:outline-none focus:ring-1 focus:ring-primary;
+  }
+  
+  .card {
+    @apply bg-card rounded-lg p-4 border border-muted;
+  }
+  
+  .positive-change {
+    @apply text-accent-green;
+  }
+  
+  .negative-change {
+    @apply text-accent-red;
+  }
 }
